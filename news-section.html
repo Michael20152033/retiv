@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-2.2.0.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/select2.min.css">
+    <script src="js/select2.min.js"></script>
+
+
+    <script src="js/highcharts.min.js"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body class="body">
+    <div class="wrapper">
+        <header class="header-authorized header header_diff">
+
+
+
+
+    <div id="popupDeposit" class="popup popup-deposit">
+        <i id="closePopup" class="popup__close">
+            <i class="icon icon--close"></i>
+        </i>
+        <div class="popup__wrap">
+
+
+            <div class="popup-deposit__title popup-title">Пополнения</div>
+            <form action="#" class="popup__form ">
+                <div class="popup-deposit__block">
+                    <input class="popup-deposit__input popup__input" placeholder="Сумма" type="text" onkeypress="return isNumberKey(event)" name="" id="depositSumm">
+                    <div class="popup__value">
+                        <span>RUB</span>
+                    </div>
+                </div>
+                <div class="popup__currencies">
+
+
+
+
+                    <input type="radio" name="currency" value="RUB" id="currencyRub" class="popup__currency">
+                    <label class="popup__label" for="currencyRub">RUB</label>
+                    <input type="radio" name="currency" value="USD" id="currencyUsd" class="popup__currency">
+                    <label class="popup__label" for="currencyUsd">USD</label>
+                </div>
+
+
+
+                <div class="popup__error">
+                    Неверный логин
+                </div>
+                <div class="popup-circle">
+                    <div class="popup-wait">
+                        <i class="popup-wait__loader">
+                            <i class="icon icon--loading">
+
+                            </i>
+                        </i>
+                    </div>
+                </div>
+
+
+                <div class="popup__btn">
+                    <button class="popup__submit btn" type="submit ">
+                        <span>Подтвердить</span>
+                    </button>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+
+
+    <div id="popupBuy" class="popup popup-buy">
+        <div class="popup-buy__wrap">
+
+            <i id="closePopup" class="popup__close">
+                <i class="icon icon--close"></i>
+            </i>
+            <div class="popup-buy__title popup-title">Оплата товара</div>
+            <form action="#" class="popup-buy__form ">
+                <div class="popup-buy__promo">
+
+
+
+                    <div class="popup-buy__block">
+
+
+                        <input class="popup__input popup-buy__input" type="text " placeholder="ПРОМОКОД (ЕСЛИ ЕСТЬ)" name=" " id=" ">
+                    </div>
+
+                    <div class="popup-buy__counter popup-counter">
+
+
+                        <div class="popup-counter__inn">
+
+
+
+                            <button class="popup-counter__minus popup-counter__btn" type="button">
+                                <i class="popup-counter__icon">
+                                    <i class="icon icon--minus"></i>
+                                </i>
+
+                            </button>
+
+                            <input id="number-diet" class="popup-counter__number" onkeypress="return isNumberKey(event)" type="text" name="number" value="1 шт.">
+
+
+                            <button class="popup-counter__plus popup-counter__btn" type="button">
+         
+                                    <i class="popup-counter__icon">
+                                        <i class="icon icon--plus"></i>
+                                    </i>
+                            </button>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="popup__name">Выберите способ оплаты:</div>
+                <div class="popup__currencies">
+                    <input type="radio" name="currencyBuy" value="RUB" id="Rubcurrency" class="popup__currency">
+                    <label class="popup__label" for="Rubcurrency">RUB</label>
+                    <input type="radio" name="currencyBuy" value="USD" id="UsdcurrencyUsd" class="popup__currency">
+                    <label class="popup__label" for="UsdcurrencyUsd">USD</label>
+                    <input type="radio" name="currencyBuy" value="USD" id="Balancecurrency" class="popup__currency">
+                    <label class="popup__label" for="Balancecurrency">Оплатить с баланса</label>
+                </div>
+
+                <div class="popup__info">
+                    Оплата прямым переводом
+
+                </div>
+
+                <div class="popup-buy__captcha popup-captcha">
+                    <a href="" class="popup-captcha__link">
+                        <img src="img/captcha.jpeg" alt="" class="popup-captcha__img">
+                    </a>
+                    <input class="popup__input popup-buy__input popup-captcha__input" type="text" placeholder="код с картинки" name="captcha" id="">
+                </div>
+
+
+                <div class="popup__error ">
+                    Неверный логин
+                </div>
+                <div class="popup-circle">
+                    <div class="popup-wait">
+
+
+                        <i class="popup-wait__loader">
+                            <i class="icon icon--loading">
+
+                            </i>
+                        </i>
+
+                    </div>
+                </div>
+
+
+                <div class="popup-buy__btn">
+                    <button class="popup__submit btn " type="submit ">
+                        <span>Подтвердить</span>
+                    </button>
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <div class="header__container container ">
+
+
+        <div class="header__wrap ">
+
+            <div class="header__left ">
+                <div class="header__menu header-menu">
+                    <div class="header__theme theme theme_mob">
+                        <div href="" class="theme__button">
+
+                            <div class="theme__change">
+                                <i class="theme__icon">
+                                    <i class="icon icon--change"></i>
+                                </i>
+                            </div>
+
+                        </div>
+
+                        <div class="theme__block">
+                            <div class="theme__title">Цвет дизайна</div>
+                            <div class="theme__values">
+                                <div class="theme__light theme__value">Светлый</div>
+                                <div class="theme__dark theme__value">Темный</div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="header__profile profile profile_mob">
+
+                        <div class="profile__top">
+
+                            <div class="profile__block">
+                                <div class="profile__user">
+
+                                    <div class="profile__right ">
+
+                                        <div class="profile__nick ">Michael</div>
+                                        <div class="profile__money"><span class="profile__summ">1200 RUB</span>
+
+                                        </div>
+
+                                    </div>
+                                    <a href="" class="profile__arr">
+                                        <i class="icon icon--bottom icon_arr"></i>
+                                    </a>
+                                </div>
+                                <a href="" class="header__out">
+                                    <i class="icon icon--out"></i>
+
+                                </a>
+
+
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="profile__bottom">
+                            <div class="profile__menu profile-menu ">
+
+                                <ul class="profile-menu__list ">
+
+                                    <li id="deposit" class="profile-menu__item ">
+                                        <a class="profile-menu__link ">Пополнить</a>
+                                    </li>
+                                    <li class="profile-menu__item ">
+                                        <a href="deposits.html" class="profile-menu__link ">Мои пополнения</a>
+                                    </li>
+                                    <li class="profile-menu__item ">
+                                        <a href="purchases.html" class="profile-menu__link ">Мои покупки</a>
+                                    </li>
+                                    <li class="profile-menu__item ">
+                                        <a href="referral-program.html" class="profile-menu__link ">Партнерская программа</a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <nav class="header__nav nav">
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="" class="nav__link hov">Товары</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="feedbacks.html" class="nav__link hov">Отзывы</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="" class="nav__link hov">Поддержка</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="guarantees.html" class="nav__link hov">Гарантии</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="" class="nav__link hov">Политика</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            <div class="header__right ">
+
+                <a href="index.html" class="fixed-logo">
+                    <img src="img/logo.png" alt="" class="fixed-logo__img">
+                </a>
+
+
+                <div class="header__theme theme">
+                    <div href="" class="theme__button">
+
+                        <div class="theme__change">
+                            <i class="theme__icon">
+                                <i class="icon icon--change"></i>
+                            </i>
+                        </div>
+
+                    </div>
+
+                    <div class="theme__block">
+                        <div class="theme__title">Цвет дизайна</div>
+                        <div class="theme__values">
+                            <div class="theme__light theme__value">Светлый</div>
+                            <div class="theme__dark theme__value">Темный</div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="header__profile profile ">
+                    <div class="profile__left ">
+                        <div class="profile__nick ">Michael</div>
+                        <div class="profile__money ">1200 RUB</div>
+                    </div>
+                    <div class="profile__right ">
+                        <div class="profile__button">
+                            <i class="profile__icon ">
+                                <i class="icon icon--arrow"></i>
+                            </i>
+                        </div>
+
+
+                    </div>
+
+                    <div class="profile__menu profile-menu ">
+
+                        <ul class="profile-menu__list ">
+
+                            <li id="deposit" class="profile-menu__item ">
+                                <a class="profile-menu__link ">Пополнить</a>
+                            </li>
+                            <li class="profile-menu__item ">
+                                <a href="deposits.html" class="profile-menu__link ">Мои пополнения</a>
+                            </li>
+                            <li class="profile-menu__item ">
+                                <a href="purchases.html" class="profile-menu__link ">Мои покупки</a>
+                            </li>
+                            <li class="profile-menu__item ">
+                                <a href="referral-program.html" class="profile-menu__link ">Партнерская программа</a>
+                            </li>
+                            <li class="profile-menu__item ">
+                                <a href=" " class="profile-menu__link profile-menu__link_red">Выйти</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="header__controls">
+
+
+                    <a href="" class="header__burger burger">
+
+                        <i class="icon icon--burger"></i>
+
+                    </a>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="header__overlay"></div>
+    <div class="popup-overlay "></div>
+</header>
+        <main class="main">
+
+            <div class="news-section">
+                <div class="news-section__container container">
+                    <div class="news-section__wrap main-vh">
+                        <div class="main-top">
+                            <div class="news-section__title title">Новости</div>
+                        </div>
+
+                        <div class="news-section__content">
+
+                            <div class="empty">
+                                <i class="empty__icon">
+                                    <i class="icon icon--empty"></i>
+                                </i>
+
+                                <div class="empty__text">
+                                    Здесь пока ничего нет
+                                </div>
+
+                            </div>
+
+                            <!-- <div class="news-section__item section-card">
+
+              <div class="section-card__image">
+              </div>
+              <div class="section-card__info">
+
+                <div class="section-card__name ">Какое-то название новости</div>
+                <div class="section-card__date">12.02.2002</div>
+
+                <div class="section-card__description">
+
+           
+                      Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков,
+
+
+                </div>
+
+
+
+
+
+                <div class="section-card__btn">
+
+                  <a href="" class="section-card__link btn">
+                    <span>Открыть</span>
+                  </a>
+                </div>
+
+              </div>
+
+            </div> -->
+
+
+
+
+
+
+
+                        </div>
+
+                        <div class="news-section__pagination pagination">
+                            <a href="#" class="pagination__button pagination__navigation pagination__navigation_left">
+                                <i class="icon icon--left"></i>
+                            </a>
+                            <a href="#" class="pagination__button pagination__active ">
+                                <span>1</span>
+                            </a>
+                            <a href="#" class="pagination__button">
+                                <span>2</span>
+                            </a>
+                            <a href="#" class="pagination__button">
+                                <span>3</span>
+                            </a>
+                            <a href="#" class="pagination__button">
+                                <span>4</span>
+                            </a>
+                            <a href="#" class="pagination__button">
+                                <span>5</span>
+                            </a>
+                            <a href="#" class="pagination__button pagination__navigation pagination__navigation_right">
+                                <i class="icon icon--right"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+    <div class="footer__container container">
+        <div class="footer__wrap">
+            <nav class="footer__nav  nav footer-nav">
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item">
+                        <a href="" class="footer-nav__link hov">Товары</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a href="feedbacks.html" class="footer-nav__link hov">Отзывы</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a href="" class="footer-nav__link hov">Поддержка</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a href="guarantees.html" class="footer-nav__link hov">Гарантии</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a href="" class="footer-nav__link hov">Политика</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</footer>
+    </div>
+
+
+    <script src="js/script.min.js"></script>
+
+</body>
+
+
+</html>

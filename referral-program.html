@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-2.2.0.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/select2.min.css">
+    <script src="js/select2.min.js"></script>
+
+
+    <script src="js/highcharts.min.js"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body class="body">
+    <div class="wrapper">
+        <header class="header header_diff">
+
+
+
+
+    <div id="popupAuth" class="popup popup-auth">
+        <div class="popup-auth__wrap">
+            <i class="popup__close">
+                <i class="icon icon--close"></i>
+            </i>
+            <div class="popup-auth__top">
+                <a class="popup-auth__title popup-auth__title_in hov hov_active" id="in" href="popup-auth__title">
+               Авторизация
+            </a>
+                <a class="popup-auth__title popup-auth__title_reg hov" id="reg" href="popup-auth__title">
+                Регистрация
+            </a>
+            </div>
+
+            <div class="popup-auth__in">
+
+
+
+
+                <form action="authorized.html" class="popup__form ">
+
+                    <div class="popup__block">
+
+
+
+                        <input class="popup-auth__input popup__input" placeholder="Логин" type="text" name="" id="login">
+
+
+                    </div>
+
+
+                    <div class="popup__block">
+                        <input class="popup-auth__input popup__input" placeholder="Пароль" type="password" name="" id="">
+                    </div>
+
+                    <div class="popup__error">
+                        Неверный логин
+                    </div>
+                    <div class="popup-circle">
+                        <div class="popup-wait">
+                            <i class="popup-wait__loader">
+                                <i class="icon icon--loading"> </i>
+                            </i>
+                        </div>
+                    </div>
+
+
+
+                    <div class="popup__btn">
+                        <button class="popup__submit btn" type="submit ">
+                            <span>Войти</span>
+                        </button>
+                    </div>
+
+
+                </form>
+
+            </div>
+
+            <div class="popup-auth__reg">
+
+
+
+
+                <form action="#" class="popup-auth__form ">
+
+                    <div class="popup__block">
+
+                        <label>
+                            
+        
+                                <input class="popup__input popup-auth__input" placeholder="Логин" type="text" name="" id="">
+        
+                            </label>
+                    </div>
+                    <div class="popup__block">
+                        <label>
+                            
+        
+                                <input class="popup__input popup-auth__input" placeholder="Пароль" type="text" name="" id="">
+        
+                            </label>
+                    </div>
+                    <div class="popup__block ">
+                        <label>
+                              
+        
+                                <input class="popup__input popup-auth__input" type="text" placeholder="Подтверждение пароля" name="" id="">
+        
+                            </label>
+                    </div>
+
+                    <div class="popup__error">
+                        Неверный логин
+                    </div>
+                    <div class="popup-circle">
+                        <div class="popup-wait">
+                            <i class="popup-wait__loader">
+                                    <i class="icon icon--loading">
+        
+                                    </i>
+                            </i>
+                        </div>
+                    </div>
+
+
+
+                    <div class="popup__btn">
+                        <button class="popup__submit btn" type="submit ">
+                            <span>Регистрация</span>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="popupBuy" class="popup popup-buy">
+        <div class="popup-buy__wrap">
+
+            <i id="closePopup" class="popup__close">
+                <i class="icon icon--close"></i>
+            </i>
+            <div class="popup-buy__title popup-title">Оплата товара</div>
+            <form action="#" class="popup-buy__form ">
+                <div class="popup-buy__promo">
+
+
+
+                    <div class="popup-buy__block">
+
+
+                        <input class="popup__input popup-buy__input" type="text " placeholder="ПРОМОКОД (ЕСЛИ ЕСТЬ)" name=" " id=" ">
+                    </div>
+
+                    <div class="popup-buy__counter popup-counter">
+
+
+                        <div class="popup-counter__inn">
+
+
+
+                            <button class="popup-counter__minus popup-counter__btn" type="button">
+                                <i class="popup-counter__icon">
+                                    <i class="icon icon--minus"></i>
+                                </i>
+
+                            </button>
+
+                            <input id="number-diet" class="popup-counter__number" onkeypress="return isNumberKey(event)" type="text" name="number" value="1 шт.">
+
+
+                            <button class="popup-counter__plus popup-counter__btn" type="button">
+         
+                                    <i class="popup-counter__icon">
+                                        <i class="icon icon--plus"></i>
+                                    </i>
+                            </button>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="popup__name">Выберите способ оплаты:</div>
+                <div class="popup__currencies">
+                    <input type="radio" name="currencyBuy" value="RUB" id="Rubcurrency" class="popup__currency">
+                    <label class="popup__label" for="Rubcurrency">RUB</label>
+                    <input type="radio" name="currencyBuy" value="USD" id="UsdcurrencyUsd" class="popup__currency">
+                    <label class="popup__label" for="UsdcurrencyUsd">USD</label>
+                    <input type="radio" name="currencyBuy" value="USD" id="Balancecurrency" class="popup__currency">
+                    <label class="popup__label" for="Balancecurrency">Оплатить с баланса</label>
+                </div>
+
+                <div class="popup__info">
+                    Оплата прямым переводом
+
+                </div>
+
+                <div class="popup-buy__captcha popup-captcha">
+                    <a href="" class="popup-captcha__link">
+                        <img src="img/captcha.jpeg" alt="" class="popup-captcha__img">
+                    </a>
+                    <input class="popup__input popup-buy__input popup-captcha__input" type="text" placeholder="код с картинки" name="captcha" id="">
+                </div>
+
+
+                <div class="popup__error ">
+                    Неверный логин
+                </div>
+                <div class="popup-circle">
+                    <div class="popup-wait">
+
+
+                        <i class="popup-wait__loader">
+                            <i class="icon icon--loading">
+
+                            </i>
+                        </i>
+
+                    </div>
+                </div>
+
+
+                <div class="popup-buy__btn">
+                    <button class="popup__submit btn " type="submit ">
+                        <span>Подтвердить</span>
+                    </button>
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="header__container container">
+
+
+        <div class="header__wrap">
+
+            <div class="header__left">
+
+                <div class="header__menu header-menu">
+                    <div class="header__theme theme theme_mob">
+                        <div href="" class="theme__button">
+
+                            <div class="theme__change">
+                                <i class="theme__icon">
+                                    <i class="icon icon--change"></i>
+                                </i>
+                            </div>
+
+                        </div>
+
+                        <div class="theme__block">
+                            <div class="theme__title">Цвет дизайна</div>
+                            <div class="theme__values">
+                                <div class="theme__light theme__value">Светлый</div>
+                                <div class="theme__dark theme__value">Темный</div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <nav class="header__nav nav">
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="" class="nav__link hov">Товары</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="feedbacks.html" class="nav__link hov">Отзывы</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="" class="nav__link hov">Поддержка</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="guarantees.html" class="nav__link hov">Гарантии</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="" class="nav__link hov">Политика</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                </div>
+
+            </div>
+
+            <div class="header__right">
+
+
+
+                <a href="index.html" class="fixed-logo">
+                    <img src="img/logo.png" alt="" class="fixed-logo__img">
+                </a>
+
+                <div class="header__theme theme">
+                    <div href="" class="theme__button">
+
+                        <div class="theme__change">
+                            <i class="theme__icon">
+                                <i class="icon icon--change"></i>
+                            </i>
+                        </div>
+
+                    </div>
+
+                    <div class="theme__block">
+                        <div class="theme__title">Цвет дизайна</div>
+                        <div class="theme__values">
+                            <div class="theme__light theme__value">Светлый</div>
+                            <div class="theme__dark theme__value">Темный</div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="header__controls">
+                    <a href="" id="authIn" class="header-auth ">
+                        <div class="header-auth__box">
+                            <i class="header-auth__icon">
+                                <i class="icon icon--profile"></i>
+                            </i>
+                        </div>
+                        <div class="header-auth__text hov">
+                            Личный кабинет
+                        </div>
+
+                    </a>
+
+
+                    <a href="" class="header__burger burger">
+
+                        <i class="icon icon--burger"></i>
+
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="header__overlay "></div>
+    <div class="popup-overlay "></div>
+</header>
+        <main class="main">
+            <div class="referral-program">
+                <div class="referral-program__container container">
+                    <div class="referral-program__wrap">
+
+                        <div class="main-top">
+                            <div class="eferral-program__title title">Партнерская программа</div>
+                            <div class="referral-program__description">
+                                Реферальная программа — это довольно популярный способ заработка в интернете, при котором партнер компании получает определенное вознаграждение (это могут быть скидки, процент от продаж и т. д.) за помощь в реализации товаров и услуг, а также за привлечение
+                                новых клиентов, которых еще называют «рефералами».
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="referral-program__content">
+                            <div class="referral-program__bord">
+                                <form action="#" class="referral-program__form">
+                                    <div class="referral-program__block">
+                                        <input class="referral-program__input" id="test1" type="text" name="comment" value="https://www.binance.com/ru/activity/referral-entry/CPA?fromActivityPage=true&ref=CPA_00KUIIPDH2" readonly>
+
+                                    </div>
+
+
+
+
+                                    <a href="" id="copy" class="referral-program__copy referral-btn">
+                                        <span id="copy_before" class=" referral-btn__text">Копировать</span>
+                                        <span id="copy_after" class=" referral-btn__text referral-btn__text_diff">Скопировано</span>
+                                    </a>
+
+
+
+                                </form>
+                            </div>
+
+
+                            <div class="referral-program__statistic">
+
+                                <div class="referral-program__table referral-table">
+                                    <div class="referral-table__title">
+                                        Последние начисления
+                                    </div>
+
+                                    <div class="empty">
+                                        <i class="empty__icon">
+                                            <i class="icon icon--empty"></i>
+                                        </i>
+
+                                        <div class="empty__text">
+                                            Здесь пока ничего нет
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- <div class="referral-table__row">
+                                        <div class="referral-table__item referral-table__date">
+                                            25.01.2023
+                                        </div>
+                                        <div class="referral-table__item referral-table__summ referral-table-summ">
+                                            <div class="status__block referral-table-summ__block">
+                                                <span>1024 RUB</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="referral-table__row">
+                                        <div class="referral-table__item referral-table__date">
+                                            25.01.2023
+                                        </div>
+                                        <div class="referral-table__item referral-table__summ referral-table-summ">
+                                            <div class="status__block referral-table-summ__block">
+                                                <span>1024 RUB</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="referral-table__row">
+                                        <div class="referral-table__item referral-table__date">
+                                            25.01.2023
+                                        </div>
+                                        <div class="referral-table__item referral-table__summ referral-table-summ">
+                                            <div class="status__block referral-table-summ__block">
+                                                <span>1024 RUB</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="referral-table__row">
+                                        <div class="referral-table__item referral-table__date">
+                                            25.01.2023
+                                        </div>
+                                        <div class="referral-table__item referral-table__summ referral-table-summ">
+                                            <div class="status__block referral-table-summ__block">
+                                                <span>1024 RUB</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="referral-table__row">
+                                        <div class="referral-table__item referral-table__date">
+                                            25.01.2023
+                                        </div>
+                                        <div class="referral-table__item referral-table__summ referral-table-summ">
+                                            <div class="status__block referral-table-summ__block">
+                                                <span>1024 RUB</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="referral-table__row">
+                                        <div class="referral-table__item referral-table__date">
+                                            25.01.2023
+                                        </div>
+                                        <div class="referral-table__item referral-table__summ referral-table-summ">
+                                            <div class="status__block referral-table-summ__block">
+                                                <span>1024 RUB</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="referral-table__row">
+                                        <div class="referral-table__item referral-table__date">
+                                            25.01.2023
+                                        </div>
+                                        <div class="referral-table__item referral-table__summ referral-table-summ">
+                                            <div class="status__block referral-table-summ__block">
+                                                <span>1024 RUB</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="referral-table__row">
+                                        <div class="referral-table__item referral-table__date">
+                                            25.01.2023
+                                        </div>
+                                        <div class="referral-table__item referral-table__summ referral-table-summ">
+                                            <div class="status__block referral-table-summ__block">
+                                                <span>1024 RUB</span>
+                                            </div>
+                                        </div>
+
+                                    </div> -->
+
+
+                                    <div class="feedbacks__pagination pagination">
+                                        <a href="#" class="pagination__button pagination__navigation pagination__navigation_left">
+                                            <i class="icon icon--left"></i>
+                                        </a>
+                                        <a href="#" class="pagination__button pagination__active ">
+                                            <span>1</span>
+                                        </a>
+                                        <a href="#" class="pagination__button">
+                                            <span>2</span>
+                                        </a>
+                                        <a href="#" class="pagination__button">
+                                            <span>3</span>
+                                        </a>
+                                        <a href="#" class="pagination__button">
+                                            <span>4</span>
+                                        </a>
+                                        <a href="#" class="pagination__button">
+                                            <span>5</span>
+                                        </a>
+                                        <a href="#" class="pagination__button pagination__navigation pagination__navigation_right">
+                                            <i class="icon icon--right"></i>
+                                        </a>
+                                    </div>
+
+
+                                </div>
+                                <div class="referral-program__charts charts">
+
+                                    <div class="charts__block">
+                                        <div class="charts__title">Количество переходов</div>
+                                        <div class="charts__item" id="topchart1">
+
+                                        </div>
+                                    </div>
+                                    <div class="charts__block">
+                                        <div class="charts__title">Общая прибыль</div>
+                                        <div class="charts__item" id="topchart2"></div>
+                                    </div>
+                                    <div class="charts__block">
+                                        <div class="charts__title">Общая прибыль </div>
+                                        <div class="charts__item" id="topchart3"></div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+
+                        var chart1 = new Highcharts.Chart({
+                            chart: {
+                                type: 'pie',
+                                renderTo: 'topchart1',
+
+                                plotBackgroundColor: null,
+                                plotBorderWidth: null,
+                                margin: 0,
+                                height: 100 + "%",
+
+                                events: {
+                                    load: function() {
+                                        this.setTitle({
+                                            text: '<span class="highcharts-title_big">64%</span>',
+                                            useHTML: true
+                                        });
+                                    }
+                                }
+                            },
+                            subtitle: {
+                                text: '',
+                            },
+
+                            tooltip: {
+                                enabled: false
+                            },
+                            title: {
+                                verticalAlign: 'middle',
+                                floating: true,
+                                text: '',
+                            },
+                            credits: {
+                                enabled: false
+                            },
+                            plotOptions: {
+                                series: {
+                                    enableMouseTracking: false,
+                                    states: {
+                                        hover: {
+
+                                            enabled: false
+
+                                        }
+                                    }
+                                },
+                                pie: {
+                                    innerSize: '80%',
+                                    borderColor: 'transparent',
+                                    dataLabels: {
+                                        enabled: false
+                                    },
+
+                                },
+                            },
+                            series: [{
+                                data: [{
+                                    name: "Active",
+                                    y: 64,
+                                    color: "#ea2532",
+
+                                }, {
+                                    name: "none",
+                                    y: 36,
+                                    color: '#e6e6e6'
+                                }]
+                            }],
+                        });
+                    });
+
+
+
+                    document.addEventListener("DOMContentLoaded", function() {
+                        var chart2 = new Highcharts.Chart({
+                            chart: {
+                                type: 'pie',
+                                renderTo: 'topchart2',
+                                backgroundColor: 'transparent',
+                                plotBackgroundColor: null,
+                                plotBorderWidth: null,
+                                plotShadow: false,
+                                margin: 0,
+                                height: 100 + "%",
+                                events: {
+                                    load: function() {
+                                        this.setTitle({
+                                            text: '<span class="highcharts-title_small">36.000 $</span>',
+                                            useHTML: true
+                                        });
+                                    }
+                                }
+
+                            },
+                            tooltip: {
+                                enabled: false
+                            },
+                            title: {
+                                verticalAlign: 'middle',
+                                floating: true,
+                                text: '',
+                                style: {}
+                            },
+
+                            credits: {
+                                enabled: false
+                            },
+                            plotOptions: {
+                                series: {
+                                    enableMouseTracking: false,
+                                    states: {
+                                        hover: {
+
+                                            enabled: false
+
+                                        }
+                                    }
+                                },
+                                pie: {
+                                    innerSize: '80%',
+                                    allowPointSelect: false,
+                                    borderColor: 'transparent',
+
+                                    dataLabels: {
+                                        enabled: false
+                                    },
+
+                                },
+                            },
+                            series: [{
+                                data: [{
+                                    name: "Active",
+                                    y: 36,
+                                    color: "#ea2532",
+                                }, {
+                                    name: "none",
+                                    y: 64,
+                                    color: '#e6e6e6'
+                                }]
+                            }],
+
+
+
+
+                        });
+                    });
+                    document.addEventListener("DOMContentLoaded", function() {
+                        var chart3 = new Highcharts.Chart({
+                            chart: {
+                                type: 'pie',
+                                renderTo: 'topchart3',
+                                backgroundColor: 'transparent',
+                                plotBackgroundColor: null,
+                                plotBorderWidth: null,
+                                plotShadow: false,
+                                margin: 0,
+                                height: 100 + "%",
+
+                                events: {
+                                    load: function() {
+                                        this.setTitle({
+                                            text: '<span class="highcharts-title_exsmall">1.000.000 <br> RUB</span>',
+                                            useHTML: true
+                                        });
+                                    }
+                                }
+
+
+                            },
+                            subtitle: {
+                                text: '',
+                            },
+                            tooltip: {
+                                enabled: false
+                            },
+                            title: {
+                                verticalAlign: 'middle',
+                                floating: true,
+                                text: '',
+                                style: {}
+                            },
+
+                            credits: {
+                                enabled: false
+                            },
+                            plotOptions: {
+                                series: {
+                                    enableMouseTracking: false,
+                                    states: {
+                                        hover: {
+
+                                            enabled: false
+
+                                        }
+                                    }
+                                },
+                                pie: {
+                                    innerSize: '80%',
+                                    allowPointSelect: false,
+                                    borderColor: 'transparent',
+                                    size: 100 + "%",
+                                    dataLabels: {
+                                        enabled: false
+                                    },
+
+                                },
+                            },
+                            series: [{
+                                data: [{
+                                    name: "Active",
+                                    y: 36,
+                                    color: "#ea2532",
+                                }, {
+                                    name: "none",
+                                    y: 64,
+                                    color: '#e6e6e6'
+                                }]
+                            }],
+                        });
+                    });
+                </script>
+
+
+            </div>
+
+
+        </main>
+        <footer class="footer">
+    <div class="footer__container container">
+        <div class="footer__wrap">
+            <nav class="footer__nav  nav footer-nav">
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item">
+                        <a href="" class="footer-nav__link hov">Товары</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a href="feedbacks.html" class="footer-nav__link hov">Отзывы</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a href="" class="footer-nav__link hov">Поддержка</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a href="guarantees.html" class="footer-nav__link hov">Гарантии</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a href="" class="footer-nav__link hov">Политика</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</footer>
+    </div>
+
+
+    <script src="js/script.min.js"></script>
+
+</body>
+
+
+</html>
